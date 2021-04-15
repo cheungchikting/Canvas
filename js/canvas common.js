@@ -10,6 +10,7 @@ let quadButton = document.getElementById('quadButton');
 let circleButton = document.getElementById('circleButton');
 let textButton = document.getElementById('textButton');
 let clearButton = document.getElementById('clearButton');
+let speechBubble = document.getElementById('speechButton');
 
 let width = 1;
 let font = "30px Arial";
