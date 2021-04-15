@@ -28,9 +28,18 @@ class quadratic extends MouseMethods {
             this.contextReal.moveTo(points[0][0], points[0][1]);
             this.contextReal.quadraticCurveTo(points[1][0], points[1][1], points[2][0], points[2][1]);
             this.contextReal.stroke();
+            log.push({
+                type: "curve",
+                moveTo: [points[0][0],points[0][1]],
+                control: [points[1][0],points[1][1]],
+                end: [points[2][0],points[2][1]],
+                color: selectedColor,
+                curvewidth: width
+            })
             points.length = 0;
+            
         };
-
+       
     }
 }
 
