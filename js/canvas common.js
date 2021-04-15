@@ -10,8 +10,19 @@ let quadButton = document.getElementById('quadButton');
 let circleButton = document.getElementById('circleButton');
 let textButton = document.getElementById('textButton');
 let clearButton = document.getElementById('clearButton');
-let speechBubble = document.getElementById('speechButton');
+let speechBubbleButton = document.getElementById('speechButton');
+let triangleButton = document.getElementById('triangleButton');
+let zoomInButton = document.getElementById('zoomIn');
 
+//test
+// let scale = 1;
+// let scaleMultiplier = 0.8;
+// let translatePos = {
+//     x: canvas.width /2,
+//     y: canvasDraft.height /2
+// };
+
+//test
 let width = 1;
 let font = "30px Arial";
 

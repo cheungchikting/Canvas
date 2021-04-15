@@ -4,6 +4,10 @@ class SpeechBubbleFunction extends MouseMethods {
         this.contextReal = contextReal;
         this.contextDraft = contextDraft;
     }
+
+    onMouseEnter(x,y){
+      canvasReal.style.cursor = "default"
+  }
   
 
   onMouseDown(x, y) {
@@ -27,6 +31,8 @@ class SpeechBubbleFunction extends MouseMethods {
 
  console.log("Mouse is down");
   }
+
+  onMouseLeave(x, y) {}
 }
 
 $("#speechButton").click(function () {
