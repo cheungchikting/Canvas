@@ -6,11 +6,12 @@ let contextDraft = canvasDraft.getContext('2d');
 let drawButton = document.getElementById('drawButton');
 let rectButton = document.getElementById('rectButton');
 let lineButton = document.getElementById('lineButton');
+let quadButton = document.getElementById('quadButton');
 let circleButton = document.getElementById('circleButton');
 let textButton = document.getElementById('textButton');
 let clearButton = document.getElementById('clearButton');
 
-let width = 3;
+let width = 1;
 let font = "30px Arial";
 
 let currentFunction;
@@ -79,6 +80,9 @@ document.getElementById("favcolor").addEventListener('input', (e) => {
     selectedColor = document.getElementById("favcolor").value;
 })
 
+function widthVal(widthVal){
+    width = widthVal;
+}
 
 
 

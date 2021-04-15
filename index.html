@@ -20,11 +20,12 @@
         <button type="button" id="drawButton" class="btn btn-outline-dark waves-effect">Pen</button>
         <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect">Rectangle</button>
         <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect">Line</button>
+        <button type="button" id="quadButton" class="btn btn-outline-dark waves-effect">Quadratic</button>
         <button type="button" id="circleButton" class="btn btn-outline-dark waves-effect">Circle</button>
         <button type="button" id="textButton" class="btn btn-outline-dark waves-effect">Text</button>
         <button type="button" id="clearButton" class="btn btn-outline-dark waves-effect">Clear</button>
         <form action=>
-            <input type="color" id="favcolor" name="favcolor" value="#ff0000"><br><br>
+            <input type="color" id="favcolor" name="favcolor" value="#ff0000"><input type="range" id="width" name="width" min="1" max="20" onchange="widthVal(this.value)">width<br><br>
         </form>
 
 
@@ -40,6 +41,7 @@
     <script type="text/javascript" src="./js/draw.js"></script>
     <script type="text/javascript" src="./js/rect.js"></script>
     <script type="text/javascript" src="./js/line.js"></script>
+    <script type="text/javascript" src="./js/quadratic.js"></script>
     <script type="text/javascript" src="./js/circle.js"></script>
     <script type="text/javascript" src="./js/text.js"></script>
     <script type="text/javascript" src="./js/clear.js"></script>
