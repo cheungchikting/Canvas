@@ -1,7 +1,8 @@
 class quadratic extends MouseMethods {
-    constructor(contextReal, contextDraft) {
+    constructor(contextReal, contextReal2, contextDraft) {
         super();
         this.contextReal = contextReal;
+        this.contextReal2 = contextReal2;
         this.contextDraft = contextDraft;
     }
 
@@ -12,6 +13,8 @@ class quadratic extends MouseMethods {
     onMouseDown(x, y) {
         this.contextReal.strokeStyle = selectedColor;
         this.contextReal.lineWidth = width;
+        this.contextReal2.strokeStyle = selectedColor;
+        this.contextReal2.lineWidth = width;
         this.lineJoin = 'round';
         this.lineCap = 'round';
 
@@ -23,11 +26,14 @@ class quadratic extends MouseMethods {
         if (points.length < 3){
             points.push([x, y])
             console.log(points);
-            this.contextReal.fillRect(x, y, 10, 10);
+            this.contextReal2.fillRect(x, y, 10, 10);
             this.contextReal.beginPath();
             this.contextReal.moveTo(points[0][0], points[0][1]);
             this.contextReal.quadraticCurveTo(points[1][0], points[1][1], points[2][0], points[2][1]);
             this.contextReal.stroke();
+            for (let i = 0; i < 3; i++){
+                this.contextReal2.clearRect(points[i][0], points[i][1], 10, 10);
+            }
             log.push({
                 type: "curve",
                 moveTo: [points[0][0],points[0][1]],
