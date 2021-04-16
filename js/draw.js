@@ -23,8 +23,6 @@ class draw extends MouseMethods {
         this.contextReal.lineTo(x, y);
         this.contextReal.stroke();
         this.arr.push([x,y])
-
-       
     }
 
     onMouseUp(x, y) {
@@ -38,12 +36,8 @@ class draw extends MouseMethods {
         this.arr = []
         console.log(log)
     }
-
-
-
 }
 
 drawButton.addEventListener('click', function () {
     currentFunction = new draw(contextReal, contextDraft)
-
 })

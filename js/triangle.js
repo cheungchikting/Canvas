@@ -51,6 +51,5 @@ class triFunction extends MouseMethods {
 }
 
 $("#triangleButton").click(function () {
-    console.log("triangle Button clicked");
     currentFunction = new triFunction(contextReal, contextDraft);
 });

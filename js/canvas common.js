@@ -18,6 +18,7 @@ let zoomInButton = document.getElementById('zoomIn');
 let undoButton = document.getElementById('undoButton');
 let redoButton = document.getElementById('redoButton');
 let saveButton = document.getElementById('save');
+let eraserButton = document.getElementById('eraser');
 
 let font = "30px Arial";
 
@@ -50,6 +51,13 @@ canvasReal.addEventListener('mousemove', e => {
     if (dragging === true) {
         getXY(e);
         currentFunction.onMouseDrag(x, y);
+    }
+});
+
+canvasReal.addEventListener('mousemove', e => {
+    if (dragging !== true) {
+        getXY(e);
+        currentFunction.onMouseMove(x, y);
     }
 });
 
@@ -86,9 +94,10 @@ document.getElementById("favcolor").addEventListener('input', (e) => {
 })
 
 //Width Slider Funciton
-function widthVal(widthVal) {
-    width = widthVal;
-}
+let width = document.getElementById("width").value
+document.getElementById("width").addEventListener('input', (e) => {
+    width = document.getElementById("width").value;
+})
 
 
 //Undo Function
@@ -113,6 +122,8 @@ undoButton.addEventListener('click', (e) => {
                 contextReal.beginPath();
                 contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
                 for (i of each.lineTo) {
+                    contextReal.strokeStyle = each.color;
+                    contextReal.lineWidth = each.drawWidth;
                     contextReal.lineTo(i[0], i[1]);
                     contextReal.moveTo(i[0], i[1]);
                     contextReal.stroke();
@@ -158,6 +169,11 @@ undoButton.addEventListener('click', (e) => {
                 contextReal.lineTo(each.start[0], each.start[1]);
                 contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
                 contextReal.fill();
+            } else if (each.type === "eraser") {
+                contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+                for (i of each.path) {
+                    contextReal.clearRect(i[0], i[1], each.size, each.size);
+                }
             }
         }
     }
@@ -225,6 +241,11 @@ redoButton.addEventListener('click', (e) => {
             contextReal.lineTo(lastItem.start[0], lastItem.start[1]);
             contextReal.lineTo(lastItem.xy[0] + (lastItem.xy[0] - lastItem.start[0]), lastItem.start[1]);
             contextReal.fill();
+        } else if (lastItem.type === "eraser") {
+            contextReal.clearRect(lastItem.start[0], lastItem.start[1], lastItem.size, lastItem.size);
+            for (i of lastItem.path) {
+                contextReal.clearRect(i[0], i[1], lastItem.size, lastItem.size);
+            }
         }
 
     }
