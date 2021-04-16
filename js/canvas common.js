@@ -18,6 +18,7 @@ let zoomInButton = document.getElementById('zoomIn');
 let undoButton = document.getElementById('undoButton');
 let redoButton = document.getElementById('redoButton');
 let saveButton = document.getElementById('save');
+let upLoadButton = document.getElementById('imageLoader');
 let eraserButton = document.getElementById('eraser');
 
 let font = "30px Arial";
