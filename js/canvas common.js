@@ -1,5 +1,7 @@
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext('2d');
+let canvasReal2 = document.getElementById("canvas-real2");
+let contextReal2 = canvasReal2.getContext('2d');
 let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext('2d');
 // Buttons
@@ -15,16 +17,8 @@ let triangleButton = document.getElementById('triangleButton');
 let zoomInButton = document.getElementById('zoomIn');
 let undoButton = document.getElementById('undoButton');
 let redoButton = document.getElementById('redoButton');
+let saveButton = document.getElementById('save');
 
-//test
-// let scale = 1;
-// let scaleMultiplier = 0.8;
-// let translatePos = {
-//     x: canvas.width /2,
-//     y: canvasDraft.height /2
-// };
-
-//test
 let font = "30px Arial";
 
 //Get X and Y Coordinate
