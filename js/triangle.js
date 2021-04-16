@@ -5,10 +5,10 @@ class triFunction extends MouseMethods {
         this.contextDraft = contextDraft;
     }
 
-    onMouseEnter(x,y){
+    onMouseEnter(x, y) {
         canvasReal.style.cursor = "default"
     }
-  
+
     onMouseDown(x, y) {
         this.contextDraft.strokeStyle = selectedColor;
         this.contextReal.strokeStyle = selectedColor;
@@ -16,27 +16,34 @@ class triFunction extends MouseMethods {
         this.contextReal.fillStyle = selectedColor;
         this.contextDraft.lineWidth = width;
         this.contextReal.lineWidth = width;
-        this.startingX = x; 
-        this.startingY = y; 
+        this.startingX = x;
+        this.startingY = y;
     };
 
     onMouseDrag(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextDraft.beginPath();
         this.contextDraft.moveTo(x, y);
-        this.contextDraft.lineTo(this.startingX, this.startingY );
-        this.contextDraft.lineTo(x + (x - this.startingX),this.startingY);
+        this.contextDraft.lineTo(this.startingX, this.startingY);
+        this.contextDraft.lineTo(x + (x - this.startingX), this.startingY);
         this.contextDraft.fill();
-   
+
     };
 
     onMouseUp(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextReal.beginPath()
         this.contextReal.moveTo(x, y);
-        this.contextReal.lineTo(this.startingX , this.startingY );
-        this.contextReal.lineTo(x + (x - this.startingX),this.startingY);
+        this.contextReal.lineTo(this.startingX, this.startingY);
+        this.contextReal.lineTo(x + (x - this.startingX), this.startingY);
         this.contextReal.fill();
+        log.push({
+            type: "triangle",
+            start: [this.startingX, this.startingY],
+            xy: [x,y],
+            linewidth: width,
+            color: selectedColor
+        })
     };
 
     onMouseLeave(x, y) {}
@@ -46,4 +53,4 @@ class triFunction extends MouseMethods {
 $("#triangleButton").click(function () {
     console.log("triangle Button clicked");
     currentFunction = new triFunction(contextReal, contextDraft);
-  });
+});

@@ -38,8 +38,6 @@ class MouseMethods {
     onMouseUp() {};
     onMouseLeave() {};
     onMouseEnter() {};
-
-
 };
 
 canvasReal.addEventListener('mousedown', e => {
@@ -140,6 +138,26 @@ undoButton.addEventListener('click', (e) => {
                 contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
                 contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
                 contextReal.stroke();
+            } else if (each.type === "bubble") {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.width;
+                contextReal.beginPath();
+                contextReal.moveTo(each.start[0] + 50, each.start[1]);
+                contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+                contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+                contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+                contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+                contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+                contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+                contextReal.stroke();
+            } else if (each.type === "triangle") {
+                contextReal.fillStyle = each.color;
+                contextReal.lineWidth = each.width;
+                contextReal.beginPath()
+                contextReal.moveTo(each.xy[0], each.xy[1]);
+                contextReal.lineTo(each.start[0], each.start[1]);
+                contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+                contextReal.fill();
             }
         }
     }
@@ -187,7 +205,28 @@ redoButton.addEventListener('click', (e) => {
             contextReal.moveTo(lastItem.moveTo[0], lastItem.moveTo[1]);
             contextReal.quadraticCurveTo(lastItem.control[0], lastItem.control[1], lastItem.end[0], lastItem.end[1]);
             contextReal.stroke();
+        } else if (each.type === "bubble") {
+            lastItem
+            contextReal.strokeStyle = lastItem.color;
+            contextReal.lineWidth = lastItem.width;
+            contextReal.beginPath();
+            contextReal.moveTo(lastItem.start[0] + 50, lastItem.start[1]);
+            contextReal.quadraticCurveTo(lastItem.start[0], lastItem.start[1], lastItem.start[0], lastItem.start[1] + 37.5);
+            contextReal.quadraticCurveTo(lastItem.start[0], lastItem.start[1] + 75, lastItem.start[0] + 25, lastItem.start[1] + 75);
+            contextReal.quadraticCurveTo(lastItem.start[0] + 25, lastItem.start[1] + 95, lastItem.start[0] + 5, lastItem.start[1] + 100);
+            contextReal.quadraticCurveTo(lastItem.start[0] + 35, lastItem.start[1] + 95, lastItem.start[0] + 40, lastItem.start[1] + 75);
+            contextReal.quadraticCurveTo(lastItem.start[0] + 100, lastItem.start[1] + 75, lastItem.start[0] + 100, lastItem.start[1] + 37.5);
+            contextReal.quadraticCurveTo(lastItem.start[0] + 100, lastItem.start[1], lastItem.start[0] + 50, lastItem.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = lastItem.color;
+            contextReal.lineWidth = lastItem.width;
+            contextReal.beginPath()
+            contextReal.moveTo(lastItem.xy[0], lastItem.xy[1]);
+            contextReal.lineTo(lastItem.start[0], lastItem.start[1]);
+            contextReal.lineTo(lastItem.xy[0] + (lastItem.xy[0] - lastItem.start[0]), lastItem.start[1]);
+            contextReal.fill();
         }
-    
+
     }
 })
