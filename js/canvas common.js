@@ -10,8 +10,21 @@ let quadButton = document.getElementById('quadButton');
 let circleButton = document.getElementById('circleButton');
 let textButton = document.getElementById('textButton');
 let clearButton = document.getElementById('clearButton');
+let speechBubbleButton = document.getElementById('speechButton');
+let triangleButton = document.getElementById('triangleButton');
+let zoomInButton = document.getElementById('zoomIn');
 let undoButton = document.getElementById('undoButton');
 let redoButton = document.getElementById('redoButton');
+
+//test
+// let scale = 1;
+// let scaleMultiplier = 0.8;
+// let translatePos = {
+//     x: canvas.width /2,
+//     y: canvasDraft.height /2
+// };
+
+//test
 let font = "30px Arial";
 
 //Get X and Y Coordinate
