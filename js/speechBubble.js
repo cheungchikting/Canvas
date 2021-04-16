@@ -47,6 +47,7 @@ class SpeechBubbleFunction extends MouseMethods {
 
     this.contextReal.beginPath();
     this.contextReal.moveTo(x+ 50, y);
+    
     this.contextReal.quadraticCurveTo(x, y, x, y + 37.5);
     this.contextReal.quadraticCurveTo(x, y + 75, x + 25, y + 75);
     this.contextReal.quadraticCurveTo(x + 25, y + 95, x + 5, y + 100);
