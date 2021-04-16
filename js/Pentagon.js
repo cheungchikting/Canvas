@@ -5,8 +5,6 @@ let step = 2 * Math.PI / sides;
 //rotation of the shape
 let shift = (Math.PI / 180.0) * -18;
 
-
-
 class pentagonFunction extends MouseMethods {
     constructor(contextReal, contextDraft) {
         super();
