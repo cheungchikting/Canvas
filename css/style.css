@@ -33,7 +33,9 @@
 .magnify-on {
     transform: scale(1.1);
     transform: center center;
+
 }
+
 
 #canvas-real2 {
     z-index: -1;
