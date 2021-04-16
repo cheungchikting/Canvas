@@ -206,7 +206,6 @@ redoButton.addEventListener('click', (e) => {
             contextReal.quadraticCurveTo(lastItem.control[0], lastItem.control[1], lastItem.end[0], lastItem.end[1]);
             contextReal.stroke();
         } else if (each.type === "bubble") {
-            lastItem
             contextReal.strokeStyle = lastItem.color;
             contextReal.lineWidth = lastItem.width;
             contextReal.beginPath();
