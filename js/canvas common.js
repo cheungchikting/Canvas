@@ -1,5 +1,7 @@
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext('2d');
+let canvasReal2 = document.getElementById("canvas-real2");
+let contextReal2 = canvasReal2.getContext('2d');
 let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext('2d');
 // Buttons
