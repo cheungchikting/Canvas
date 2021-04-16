@@ -12,6 +12,27 @@
 </head>
 
 <body>
+    <div class="container-fluid p-3">
+        <div class="container">
+            <canvas id="canvas-draft" class="canvas" width='1280px' height='600px'></canvas>
+            <canvas id="canvas-real" class="canvas" width='1280px' height='600px'></canvas>
+            <canvas id="canvas-real2" class="canvas" width='1280px' height='600px'></canvas>
+        </div>
+        <div class="container1 py-3">
+            <button type="button" id="drawButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Pen--></button>
+            <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Rectangle--></button>
+            <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Line--></button>
+            <button type="button" id="quadButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Quadratic--></button>
+            <button type="button" id="circleButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Circle--></button>
+            <button type="button" id="textButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Text--></button>
+            <button type="button" id="clearButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Clear--></button>
+            <button type="button" id="undoButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Undo--></button>
+            <button type="button" id="redoButton" class="btn btn-outline-dark waves-effect p-2 px-3"><!--Redo--></button>
+            <form class="py-3" action=>
+                <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+                <input type="range" id="width" name="width" min="1" max="20" onchange="widthVal(this.value)"> <img src="../images/Width.png" alt="Width" title="Width"> Width<br><br>
+            </form>
+        </div>
     <div class="container">
         <canvas id="canvas-draft" class="canvas" width='1280px' height='600px'></canvas>
         <canvas id="canvas-real" class="canvas" width='1280px' height='600px'></canvas>
@@ -63,10 +84,7 @@
     <script type="text/javascript" src="./js/triangle.js"></script>
     <script type="text/javascript" src="./js/zoomIn.js"></script>
     <script type="text/javascript" src="./js/Save.js"></script>
-
     <script type="text/javascript" src="./js/eraser.js"></script>
-
-
     <script type="text/javascript" src="./js/Pentagon.js"></script>
     <script type="text/javascript" src="./js/Hexagon.js"></script>
 

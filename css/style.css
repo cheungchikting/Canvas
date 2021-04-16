@@ -5,6 +5,11 @@
 
 .canvas {
     position: absolute;
+    top: 1rem;
+    /* bottom: 0px; */
+    left: 1rem;
+    /* right: 0px; */
+
     left: 0;
     right: 0;
     margin: auto;
@@ -40,3 +45,7 @@
     z-index: -1;
 }
 
+input{
+    vertical-align: middle;
+}
+=======

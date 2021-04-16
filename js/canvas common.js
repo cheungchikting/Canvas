@@ -250,3 +250,28 @@ redoButton.addEventListener('click', (e) => {
 
     }
 })
+
+$( document ).ready(function btnImage() {
+let imagePath = [
+    "Pen.png",
+    "Rectangle.png",
+    "Line.png",
+    "Quadratic.png",
+    "Circle.png",
+    "Text.png",
+    "Clear.png",
+    "Undo.png",
+    "Redo.png"
+];
+
+let imageName = [];
+
+let countButton = $('div.container1 button').length;
+	for (let i = 0; i <= countButton; i++){
+        imageName.push(imagePath[i].split(".", 1));
+        console.log(imageName);
+		imagePath.push(`../images/${imagePath[i]}`);
+		$("div.container1 button").eq(`${i}`).append(`<img src="../images/${imagePath[i]}" alt="${imageName[i]}" title="${imageName[i]}">`);
+	}
+
+})
