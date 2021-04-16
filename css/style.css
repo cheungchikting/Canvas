@@ -3,13 +3,10 @@
     padding: 0;
 }
 
+
+
 .canvas {
     position: absolute;
-    top: 1rem;
-    /* bottom: 0px; */
-    left: 1rem;
-    /* right: 0px; */
-
     left: 0;
     right: 0;
     margin: auto;
@@ -21,8 +18,8 @@
 
 .container {
     width: 1280px;
-    height: 600px;
-    border: 1px black dotted;
+    height: 800px;
+
     overflow: hidden;
     transform: translate3d(0, 0, 0);
 }
@@ -34,11 +31,18 @@
     align-items: center;
 }
 
+.container2 {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 
 .magnify-on {
-    transform: scale(1.1);
+    transform: scale(1.5);
     transform: center center;
-
 } 
 
 #canvas-real2 {
@@ -47,5 +51,16 @@
 
 input{
     vertical-align: middle;
+}
+
+body {
+    background-image: url(../images/background.jpg);
+    background-size: 3700px auto;
+    background-position: 52% 55%;
+}
+
+input {
+    margin: 15px
+
 }
 

@@ -39,13 +39,8 @@ class pentagonFunction extends MouseMethods {
             console.log(curStep);
             //scaling control
             this.contextDraft.lineTo (x + ( x - this.startingX) * Math.cos(curStep), y + ( y - this.startingY) * Math.sin(curStep));
-            
         }
         this.contextDraft.fill();
-        
-  
-       
-   
     };
 
     onMouseUp(x, y) {
@@ -58,7 +53,12 @@ class pentagonFunction extends MouseMethods {
             
         }
         this.contextReal.fill();
-        
+        log.push({
+            type: "pentagon",
+            start: [this.startingX, this.startingY],
+            xy: [x,y],
+            color: selectedColor
+        })
     };
 
     onMouseLeave(x, y) {}
