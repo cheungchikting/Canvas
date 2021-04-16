@@ -12,66 +12,61 @@
 </head>
 
 <body>
-    <div class="container1 py-3">
-            <input type="color" id="favcolor" name="favcolor" value="#ff0000">
-            <button type="button" id="drawButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Pen--></button>
-            <button type="button" id="eraser" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Eraser--></button>
-            <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Line--></button>
-            <button type="button" id="quadButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Quadratic--></button>
-            <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Rectangle--></button>
-            <button type="button" id="circleButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Circle--></button>
-            <button type="button" id="triangleButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Triangle--></button>
-            <button type="button" id="pentagonButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Pentagon--></button>
-            <button type="button" id="hexagonButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Hexagon--></button>
-            <button type="button" id="speechButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Chat--></button>
-            <button type="button" id="textButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Text--></button>
-            <button type="button" id="zoomIn" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Zoom--></button>
-            <button type="button" id="undoButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Undo--></button>
-            <button type="button" id="redoButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Redo--></button>
-            <button type="button" id="clearButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Clear--></button>
-            <button type="button" id="save" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Download--></button>
-            <input type="file" id="imageLoader" name="imageLoader">
+    <div class="container1">
+        <input type="color" id="favcolor" name="favcolor" value="#ff0000">
+        <button type="button" id="drawButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Pen--></button>
+        <button type="button" id="eraser" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Eraser--></button>
+        <button type="button" id="lineButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Line--></button>
+        <button type="button" id="quadButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Quadratic--></button>
+        <button type="button" id="rectButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Rectangle--></button>
+        <button type="button" id="circleButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Circle--></button>
+        <button type="button" id="triangleButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Triangle--></button>
+        <button type="button" id="pentagonButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Pentagon--></button>
+        <button type="button" id="hexagonButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Hexagon--></button>
+        <button type="button" id="speechButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Chat--></button>
+        <button type="button" id="textButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Text--></button>
+        <button type="button" id="zoomIn" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Zoom--></button>
+        <button type="button" id="undoButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Undo--></button>
+        <button type="button" id="redoButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Redo--></button>
+        <button type="button" id="clearButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Clear--></button>
+        <button type="button" id="save" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
+            <!--Download--></button>
+        <input type="file" id="imageLoader" name="imageLoader">
     </div>
-  
-        <div class="container2 py-3">
-            <form class="py-3" action=>
-                <input type="color" id="favcolor" name="favcolor" value="#ff0000">
-                <input type="range" id="width" name="width" min="1" max="20"> <img src="../images/Width.png" alt="Width"
-                    title="Width"> Width<br><br>
-                    <input type="range" id="blur-slider" name="blur" min="0" max="50" value="0"> Blur<br><br>
-                    <input type="range" id="brightness-slider" name="brightness" min="0%" max="100%" value="100%"> brightness<br><br>
-                    <input type="range" id="contrast-slider" name="contrast" min="0%" max="100%" value="100%"> contrast<br><br>
-                    <input type="range" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0%"> grayscale<br><br>
-                    <input type="range" id="opacity-slider" name="opacity" min="0%" max="100%" value="100%"> opacity<br><br>
-                    <input type="range" id="saturate-slider" name="saturate" min="0%" max="100%" value="100%"> saturate<br><br>
-                    <input type="range" id="hue-rotate-slider" name="hue-rotate" min="0deg" max="360deg" value="0deg"> hue-rotate<br><br>
-                <input type="range" id="width" name="width" min="1" max="150" value="5"> <img src="../images/Width.png" alt="Width"
-                    title="Width">
-                <input type="range" id="blur-slider" name="blur" min="0" max="50" value="0"> Blur<br><br>
-            </form>
-        </div>
-    
-        <div class="container">
-            <canvas id="canvas-draft" class="canvas" width='1280px' height='850px'></canvas>
-            <canvas id="canvas-real" class="canvas" width='1280px' height='850px'></canvas>
-            <canvas id="canvas-real2" class="canvas" width='1280px' height='850px'></canvas>
-        </div>
+    <div class="container2 py-3">
+        <form class="py-3" action=>
+            <input type="range" id="width" name="width" min="1" max="150" value="10"> <img src="../images/Width.png" alt="Width" title="Width">
+            <input type="range" id="blur-slider" name="blur" min="0" max="50" value="0"> Blur
+            <input type="range" id="brightness-slider" name="brightness" min="0%" max="100%" value="100%"> brightness
+            <input type="range" id="contrast-slider" name="contrast" min="0%" max="100%" value="100%"> contrast <br>
+            <input type="range" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0%"> grayscale
+            <input type="range" id="opacity-slider" name="opacity" min="0%" max="100%" value="100%"> opacity
+            <input type="range" id="saturate-slider" name="saturate" min="0%" max="100%" value="100%"> saturate
+            <input type="range" id="hue-rotate-slider" name="hue-rotate" min="0deg" max="360deg" value="0deg">
+            hue-rotate
+        </form>
+    </div>
+
+    <div class="container">
+        <canvas id="canvas-draft" class="canvas" width='1280px' height='850px'></canvas>
+        <canvas id="canvas-real" class="canvas" width='1280px' height='850px'></canvas>
+        <canvas id="canvas-real2" class="canvas" width='1280px' height='850px'></canvas>
+    </div>
 
 
 
