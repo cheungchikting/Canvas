@@ -5,8 +5,8 @@ class circle extends MouseMethods {
         this.contextDraft = contextDraft;
     };
 
-    onMouseEnter(x,y){
-        canvasReal.style.cursor = "default"
+    onMouseEnter(x, y) {
+        canvasReal.style.cursor = "cell"
     }
 
     onMouseDown(x, y) {
@@ -20,22 +20,30 @@ class circle extends MouseMethods {
     onMouseDrag(x, y) {
         this.contextDraft.beginPath();
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextDraft.arc(this.startX, this.startY, Math.abs(x - this.startX), 0, 2 * Math.PI, true);
+        this.contextDraft.arc(this.startX, this.startY, Math.abs(x - this.startX), 0, 2 * Math.PI);
         this.contextDraft.fill()
     };
 
     onMouseUp(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextReal.arc(this.startX, this.startY, Math.abs(x - this.startX), 0, 2 * Math.PI, true);
+        this.contextReal.arc(this.startX, this.startY, Math.abs(x - this.startX), 0, 2 * Math.PI);
         this.contextReal.fill()
+    
+        log.push({
+            type: "Circle",
+            x: this.startX,
+            y: this.startY,
+            r: Math.abs(x - this.startX),
+            sAngle: 0,
+            eAngle: 2 * Math.PI,
+            color: selectedColor
+        })
     };
-
     onMouseLeave(x, y) {}
 };
 
 
 circleButton.addEventListener('click', function () {
-    console.log("haha")
     currentFunction = new circle(contextReal, contextDraft);
 
 })

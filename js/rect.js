@@ -24,6 +24,14 @@ class rectangle extends MouseMethods {
     onMouseUp(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextReal.fillRect(this.startX, this.startY, x - this.startX, y - this.startY);
+        log.push({
+            type: "rect",
+            x: this.startX,
+            y: this.startY,
+            xdist: x - this.startX,
+            ydist: y - this.startY,
+            color: selectedColor,
+        })
     };
 
     onMouseLeave(x, y) {}
