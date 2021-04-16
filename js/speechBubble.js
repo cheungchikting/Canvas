@@ -1,3 +1,8 @@
+// this.scaleX = this.startX + (x - this.startX);
+// this.scaleY = this.startY + (y - this.startY);
+
+
+
 class SpeechBubbleFunction extends MouseMethods {
   constructor(contextReal, contextDraft) {
     super();
@@ -16,18 +21,42 @@ class SpeechBubbleFunction extends MouseMethods {
     this.startY = y;
     this.contextReal.lineWidth = width;
     this.contextReal.strokeStyle = selectedColor;
-    this.contextReal.beginPath();
-    this.contextReal.moveTo(this.startX + 50, this.startY);
-    this.contextReal.quadraticCurveTo(this.startX, this.startY, this.startX, this.startY + 37.5);
-    this.contextReal.quadraticCurveTo(this.startX, this.startY + 75, this.startX + 25, this.startY + 75);
-    this.contextReal.quadraticCurveTo(this.startX + 25, this.startY + 95, this.startX + 5, this.startY + 100);
-    this.contextReal.quadraticCurveTo(this.startX + 35, this.startY + 95, this.startX + 40, this.startY + 75);
-    this.contextReal.quadraticCurveTo(this.startX + 100, this.startY + 75, this.startX + 100, this.startY + 37.5);
-    this.contextReal.quadraticCurveTo(this.startX + 100, this.startY, this.startX + 50, this.startY);
-    this.contextReal.stroke();
+
+  };
+
+    onMouseDrag(x, y) {
+      this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+
+      this.contextDraft.beginPath();
+      this.contextDraft.moveTo(this.startX + (x - this.startX) + 50, this.startY + (y - this.startY));
+      this.contextDraft.quadraticCurveTo(this.startX + (x - this.startX), this.startY + (y - this.startY), this.startX + (x - this.startX), this.startY + (y - this.startY) + 37.5);
+      this.contextDraft.quadraticCurveTo(this.startX + (x - this.startX), this.startY + (y - this.startY) + 75, this.startX + (x - this.startX) + 25, this.startY + (y - this.startY) + 75);
+      this.contextDraft.quadraticCurveTo(this.startX + (x - this.startX) + 25, this.startY + (y - this.startY) + 95, this.startX + (x - this.startX) + 5, this.startY + (y - this.startY) + 100);
+      this.contextDraft.quadraticCurveTo(this.startX + (x - this.startX) + 35, this.startY + (y - this.startY) + 95, this.startX + (x - this.startX) + 40, this.startY + (y - this.startY) + 75);
+      this.contextDraft.quadraticCurveTo(this.startX + (x - this.startX) + 100, this.startY + (y - this.startY) + 75, this.startX + (x - this.startX) + 100, this.startY + (y - this.startY) + 37.5);
+      this.contextDraft.quadraticCurveTo(this.startX + (x - this.startX) + 100, this.startY + (y - this.startY), this.startX + (x - this.startX) + 50, this.startY + (y - this.startY));
+   
+      
+      this.contextDraft.stroke();
+
+  
   }
 
   onMouseUp(x, y) {
+    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+
+    this.contextReal.beginPath();
+    this.contextReal.moveTo(this.startX + (x - this.startX) + 50, this.startY + (y - this.startY));
+    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX), this.startY + (y - this.startY), this.startX + (x - this.startX), this.startY + (y - this.startY) + 37.5);
+    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX), this.startY + (y - this.startY) + 75, this.startX + (x - this.startX) + 25, this.startY + (y - this.startY) + 75);
+    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 25, this.startY + (y - this.startY) + 95, this.startX + (x - this.startX) + 5, this.startY + (y - this.startY) + 100);
+    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 35, this.startY + (y - this.startY) + 95, this.startX + (x - this.startX) + 40, this.startY + (y - this.startY) + 75);
+    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 100, this.startY + (y - this.startY) + 75, this.startX + (x - this.startX) + 100, this.startY + (y - this.startY) + 37.5);
+    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 100, this.startY + (y - this.startY), this.startX + (x - this.startX) + 50, this.startY + (y - this.startY));
+ 
+    
+    this.contextReal.stroke();
+
     log.push({
       type: "bubble",
       start: [this.startX, this.startY],
