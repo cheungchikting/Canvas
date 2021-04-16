@@ -54,7 +54,14 @@ class hexagonFunction extends MouseMethods {
             console.log.apply(this.contextReal.lineTo);
         }
         this.contextReal.fill();
-        
+
+        log.push({
+            type: "hexagon",
+            start: [this.startingX, this.startingY ],
+            xy: [x,y],
+            color: selectedColor,
+            width: width
+        })
     };
 
     onMouseLeave(x, y) {}
