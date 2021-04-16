@@ -38,7 +38,7 @@ class hexagonFunction extends MouseMethods {
             console.log.apply(this.contextDraft.lineTo);
         }
         this.contextDraft.fill();
-        this.contextDraft.stroke();
+        
   
        
    
@@ -54,7 +54,7 @@ class hexagonFunction extends MouseMethods {
             console.log.apply(this.contextReal.lineTo);
         }
         this.contextReal.fill();
-        this.contextReal.stroke();
+        
     };
 
     onMouseLeave(x, y) {}
