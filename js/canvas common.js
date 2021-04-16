@@ -88,7 +88,6 @@ document.addEventListener('keydown', (e) => {
 
 // Color Picker Function
 let selectedColor = document.getElementById("favcolor").value
-
 document.getElementById("favcolor").addEventListener('input', (e) => {
     selectedColor = document.getElementById("favcolor").value;
 })
@@ -254,14 +253,21 @@ redoButton.addEventListener('click', (e) => {
 $( document ).ready(function btnImage() {
 let imagePath = [
     "Pen.png",
-    "Rectangle.png",
+    "Eraser.png",
     "Line.png",
     "Quadratic.png",
+    "Rectangle.png",
     "Circle.png",
+    "triangle.png",
+    "pentagon.png",
+    "hexagon.png",
+    "chat.png",
     "Text.png",
-    "Clear.png",
+    "zoom.png",
     "Undo.png",
-    "Redo.png"
+    "Redo.png",
+    "clear.png",
+    "download.png"
 ];
 
 let imageName = [];
