@@ -205,7 +205,7 @@ redoButton.addEventListener('click', (e) => {
             contextReal.moveTo(lastItem.moveTo[0], lastItem.moveTo[1]);
             contextReal.quadraticCurveTo(lastItem.control[0], lastItem.control[1], lastItem.end[0], lastItem.end[1]);
             contextReal.stroke();
-        } else if (each.type === "bubble") {
+        } else if (lastItem.type === "bubble") {
             contextReal.strokeStyle = lastItem.color;
             contextReal.lineWidth = lastItem.width;
             contextReal.beginPath();
@@ -217,7 +217,7 @@ redoButton.addEventListener('click', (e) => {
             contextReal.quadraticCurveTo(lastItem.start[0] + 100, lastItem.start[1] + 75, lastItem.start[0] + 100, lastItem.start[1] + 37.5);
             contextReal.quadraticCurveTo(lastItem.start[0] + 100, lastItem.start[1], lastItem.start[0] + 50, lastItem.start[1]);
             contextReal.stroke();
-        } else if (each.type === "triangle") {
+        } else if (lastItem.type === "triangle") {
             contextReal.fillStyle = lastItem.color;
             contextReal.lineWidth = lastItem.width;
             contextReal.beginPath()
