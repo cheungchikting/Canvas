@@ -1,10 +1,10 @@
 .canvas {
     border: 1px black dotted;
     position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+    top: 1rem;
+    /* bottom: 0px; */
+    left: 1rem;
+    /* right: 0px; */
 }
 
 #canvas-draft {
@@ -17,4 +17,8 @@
 
 #canvas-real2 {
     z-index: -1;
+}
+
+input{
+    vertical-align: middle;
 }
