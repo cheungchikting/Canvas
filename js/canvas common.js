@@ -334,3 +334,107 @@ $(document).ready(function btnImage() {
     }
 
 })
+
+// filter
+
+let blur = document.getElementById("blur-slider");
+blur.addEventListener('input', () => {
+contextDraft.filter = `blur(${blur.value}px)`;
+contextReal.filter = `blur(${blur.value}px)`;
+contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+for (each of log) {
+    if (each.type === "Circle") {
+        contextReal.fillStyle = each.color
+        contextReal.beginPath()
+        contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+        contextReal.fill()
+    } else if (each.type === "draw") {
+        contextReal.strokeStyle = each.color;
+        contextReal.lineWidth = each.drawWidth;
+        contextReal.beginPath();
+        contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+        for (i of each.lineTo) {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.lineTo(i[0], i[1]);
+            contextReal.moveTo(i[0], i[1]);
+            contextReal.stroke();
+        }
+    } else if (each.type === "line") {
+        contextReal.strokeStyle = each.color;
+        contextReal.lineWidth = each.drawWidth;
+        contextReal.beginPath()
+        contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+        contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+        contextReal.stroke();
+    } else if (each.type === "rect") {
+        contextReal.fillStyle = each.color;
+        contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+    } else if (each.type === "text") {
+        contextReal.font = each.font
+        contextReal.fillStyle = each.color
+        contextReal.fillText(each.content, each.x, each.y)
+    } else if (each.type === "curve") {
+        contextReal.strokeStyle = each.color;
+        contextReal.lineWidth = each.width;
+        contextReal.beginPath();
+        contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+        contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+        contextReal.stroke();
+    } else if (each.type === "bubble") {
+        contextReal.strokeStyle = each.color;
+        contextReal.lineWidth = each.width;
+        contextReal.beginPath();
+        contextReal.moveTo(each.xy[0] + 50, each.xy[1]);
+        contextReal.quadraticCurveTo(each.xy[0], each.xy[1], each.xy[0], each.xy[1] + 37.5);
+        contextReal.quadraticCurveTo(each.xy[0], each.xy[1] + 75, each.xy[0] + 25, each.xy[1] + 75);
+        contextReal.quadraticCurveTo(each.xy[0] + 25, each.xy[1] + 95, each.xy[0] + 5, each.xy[1] + 100);
+        contextReal.quadraticCurveTo(each.xy[0] + 35, each.xy[1] + 95, each.xy[0] + 40, each.xy[1] + 75);
+        contextReal.quadraticCurveTo(each.xy[0] + 100, each.xy[1] + 75, each.xy[0] + 100, each.xy[1] + 37.5);
+        contextReal.quadraticCurveTo(each.xy[0] + 100, each.xy[1], each.xy[0] + 50, each.xy[1]);
+        contextReal.stroke();
+    } else if (each.type === "triangle") {
+        contextReal.fillStyle = each.color;
+        contextReal.lineWidth = each.width;
+        contextReal.beginPath()
+        contextReal.moveTo(each.xy[0], each.xy[1]);
+        contextReal.lineTo(each.start[0], each.start[1]);
+        contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+        contextReal.fill();
+    } else if (each.type === "eraser") {
+        contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+        for (i of each.path) {
+            contextReal.clearRect(i[0], i[1], each.size, each.size);
+        }
+    } else if (each.type === "hexagon") {
+        contextReal.fillStyle = each.color;
+        contextReal.lineWidth = each.width;
+        let hexSides = 6;
+        let hexStep = 2 * Math.PI / hexSides;
+        let hexShift = (Math.PI / 180.0) * -0.1;
+        contextReal.beginPath();
+        for (let i = 0; i <= hexSides; i++) {
+            let curStep = i * hexStep + hexShift;
+            console.log(curStep);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]) * Math.cos(curStep), each.xy[1] + (each.xy[1] - each.start[1]) * Math.sin(curStep));
+            console.log.apply(contextReal.lineTo);
+        }
+        contextReal.fill();
+    } else if (each.type === "pentagon") {
+        contextReal.fillStyle = each.color;
+        let sides = 5;
+        let step = 2 * Math.PI / sides;
+        let shift = (Math.PI / 180.0) * -18;
+        contextReal.beginPath();
+        for (let i = 0; i <= sides; i++) {
+            let curStep = i * step + shift;
+            console.log(curStep);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]) * Math.cos(curStep), each.xy[1] + (each.xy[1] - each.start[1]) * Math.sin(curStep));
+        }
+        contextReal.fill();
+    }
+}
+
+
+
+})
