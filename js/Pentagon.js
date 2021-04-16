@@ -69,3 +69,5 @@ $("#pentagonButton").click(function () {
     console.log("pentagon Button clicked");
     currentFunction = new pentagonFunction(contextReal, contextDraft);
   });
+
+  console.log("wtf");
