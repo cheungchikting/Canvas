@@ -1,5 +1,4 @@
 .canvas {
-   
     position: absolute;
     top: 100px;
     bottom: 0px;
@@ -21,18 +20,17 @@
 
 
 .container1 {
-    height: 200px;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 
- .magnify-on{ 
+.magnify-on{ 
     transform: scale(1.1);
     transform: center center;
-  } 
+} 
   
 
-}
 
