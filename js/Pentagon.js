@@ -50,7 +50,7 @@ class pentagonFunction extends MouseMethods {
             let curStep = i * step + shift;
             console.log(curStep);
             this.contextReal.lineTo (x + (x - this.startingX) * Math.cos(curStep), y + (y - this.startingY) * Math.sin(curStep));
-            console.log.apply(this.contextReal.lineTo);
+            
         }
         this.contextReal.fill();
         log.push({
@@ -70,4 +70,3 @@ $("#pentagonButton").click(function () {
     currentFunction = new pentagonFunction(contextReal, contextDraft);
   });
 
-  console.log("wtf");

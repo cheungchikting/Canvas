@@ -99,6 +99,519 @@ document.getElementById("width").addEventListener('input', (e) => {
     width = document.getElementById("width").value;
 })
 
+//
+let blur = document.getElementById("blur-slider");
+blur.addEventListener('input', () => {
+    contextDraft.filter = `blur(${blur.value}px)`;
+    contextReal.filter = `blur(${blur.value}px)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+    
+})
+
+let brightness = document.getElementById("brightness-slider");
+brightness.addEventListener('input', () => {
+    contextDraft.filter = `brightness(${brightness.value}%)`;
+    contextReal.filter = `brightness(${brightness.value}%)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+})
+
+let contrast = document.getElementById("contrast-slider");
+contrast.addEventListener('input', () => {
+    contextDraft.filter = `contrast(${contrast.value}%)`;
+    contextReal.filter = `contrast(${contrast.value}%)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+})
+
+let grayscale = document.getElementById("grayscale-slider");
+grayscale.addEventListener('input', () => {
+    contextDraft.filter = `grayscale(${grayscale.value}%)`;
+    contextReal.filter = `grayscale(${grayscale.value}%)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+})
+
+let opacity = document.getElementById("opacity-slider");
+opacity.addEventListener('input', () => {
+    contextDraft.filter = `opacity(${opacity.value}%)`;
+    contextReal.filter = `opacity(${opacity.value}%)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+})
+
+let saturate = document.getElementById("saturate-slider");
+saturate.addEventListener('input', () => {
+    contextDraft.filter = `saturate(${saturate.value}%)`;
+    contextReal.filter = `saturate(${saturate.value}%)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+})
+
+let hue_rotate = document.getElementById("hue-rotate-slider");
+hue_rotate.addEventListener('input', () => {
+    contextDraft.filter = `hue-rotate(${hue_rotate.value}deg)`;
+    contextReal.filter = `hue-rotate(${hue_rotate.value}deg)`;
+    contextReal.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    for (each of log) {
+        if (each.type === "Circle") {
+            contextReal.fillStyle = each.color
+            contextReal.beginPath()
+            contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
+            contextReal.fill()
+        } else if (each.type === "draw") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            for (i of each.lineTo) {
+                contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.drawWidth;
+                contextReal.lineTo(i[0], i[1]);
+                contextReal.moveTo(i[0], i[1]);
+                contextReal.stroke();
+            }
+        } else if (each.type === "line") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.drawWidth;
+            contextReal.beginPath()
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.lineTo(each.lineTo[0], each.lineTo[1])
+            contextReal.stroke();
+        } else if (each.type === "rect") {
+            contextReal.fillStyle = each.color;
+            contextReal.fillRect(each.x, each.y, each.xdist, each.ydist);
+        } else if (each.type === "text") {
+            contextReal.font = each.font
+            contextReal.fillStyle = each.color
+            contextReal.fillText(each.content, each.x, each.y)
+        } else if (each.type === "curve") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
+            contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
+            contextReal.stroke();
+        } else if (each.type === "bubble") {
+            contextReal.strokeStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath();
+            contextReal.moveTo(each.start[0] + 50, each.start[1]);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1], each.start[0], each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0], each.start[1] + 75, each.start[0] + 25, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 25, each.start[1] + 95, each.start[0] + 5, each.start[1] + 100);
+            contextReal.quadraticCurveTo(each.start[0] + 35, each.start[1] + 95, each.start[0] + 40, each.start[1] + 75);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1] + 75, each.start[0] + 100, each.start[1] + 37.5);
+            contextReal.quadraticCurveTo(each.start[0] + 100, each.start[1], each.start[0] + 50, each.start[1]);
+            contextReal.stroke();
+        } else if (each.type === "triangle") {
+            contextReal.fillStyle = each.color;
+            contextReal.lineWidth = each.width;
+            contextReal.beginPath()
+            contextReal.moveTo(each.xy[0], each.xy[1]);
+            contextReal.lineTo(each.start[0], each.start[1]);
+            contextReal.lineTo(each.xy[0] + (each.xy[0] - each.start[0]), each.start[1]);
+            contextReal.fill();
+        } else if (each.type === "eraser") {
+            contextReal.clearRect(each.start[0], each.start[1], each.size, each.size);
+            for (i of each.path) {
+                contextReal.clearRect(i[0], i[1], each.size, each.size);
+            }
+        }
+    }
+})
+
 
 //Undo Function
 let log = []
