@@ -46,13 +46,13 @@ class SpeechBubbleFunction extends MouseMethods {
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
 
     this.contextReal.beginPath();
-    this.contextReal.moveTo(this.startX + (x - this.startX) + 50, this.startY + (y - this.startY));
-    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX), this.startY + (y - this.startY), this.startX + (x - this.startX), this.startY + (y - this.startY) + 37.5);
-    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX), this.startY + (y - this.startY) + 75, this.startX + (x - this.startX) + 25, this.startY + (y - this.startY) + 75);
-    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 25, this.startY + (y - this.startY) + 95, this.startX + (x - this.startX) + 5, this.startY + (y - this.startY) + 100);
-    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 35, this.startY + (y - this.startY) + 95, this.startX + (x - this.startX) + 40, this.startY + (y - this.startY) + 75);
-    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 100, this.startY + (y - this.startY) + 75, this.startX + (x - this.startX) + 100, this.startY + (y - this.startY) + 37.5);
-    this.contextReal.quadraticCurveTo(this.startX + (x - this.startX) + 100, this.startY + (y - this.startY), this.startX + (x - this.startX) + 50, this.startY + (y - this.startY));
+    this.contextReal.moveTo(x+ 50, y);
+    this.contextReal.quadraticCurveTo(x, y, x, y + 37.5);
+    this.contextReal.quadraticCurveTo(x, y + 75, x + 25, y + 75);
+    this.contextReal.quadraticCurveTo(x + 25, y + 95, x + 5, y + 100);
+    this.contextReal.quadraticCurveTo(x + 35, y + 95, x + 40, y + 75);
+    this.contextReal.quadraticCurveTo(x + 100,y + 75, x + 100, y + 37.5);
+    this.contextReal.quadraticCurveTo(x + 100, y,x + 50, y);
  
     
     this.contextReal.stroke();
