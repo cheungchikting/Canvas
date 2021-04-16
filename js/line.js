@@ -5,13 +5,17 @@ class line extends MouseMethods {
         this.contextDraft = contextDraft;
     };
 
+    onMouseEnter(x, y) {
+        canvasReal.style.cursor = "cell"
+    }
+
     onMouseDown(x, y) {
         this.contextDraft.strokeStyle = selectedColor;
         this.contextReal.strokeStyle = selectedColor;
         this.contextDraft.lineWidth = width;
         this.contextReal.lineWidth = width;
-        this.startingX = x; 
-        this.startingY = y; 
+        this.startingX = x;
+        this.startingY = y;
     };
 
     onMouseDrag(x, y) {
@@ -20,7 +24,7 @@ class line extends MouseMethods {
         this.contextDraft.moveTo(this.startingX, this.startingY);
         this.contextDraft.lineTo(x, y);
         this.contextDraft.stroke();
-   
+
     };
 
     onMouseUp(x, y) {
@@ -29,8 +33,14 @@ class line extends MouseMethods {
         this.contextReal.moveTo(this.startingX, this.startingY);
         this.contextReal.lineTo(x, y)
         this.contextReal.stroke();
+        log.push({
+            type: "line",
+            moveTo: [this.startingX, this.startingY],
+            lineTo: [x, y],
+            color: selectedColor,
+            lineWidth: width
+        })
     };
-
     onMouseLeave(x, y) {}
 
 };
