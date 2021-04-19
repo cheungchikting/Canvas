@@ -825,26 +825,46 @@ $(document).ready(function btnImage() {
         "Quadratic.png",
         "Rectangle.png",
         "Circle.png",
-        "triangle.png",
-        "pentagon.png",
-        "hexagon.png",
-        "chat.png",
+        "Triangle.png",
+        "Pentagon.png",
+        "Hexagon.png",
+        "Chat.png",
         "Text.png",
-        "zoom.png",
+        "Zoom.png",
         "Undo.png",
         "Redo.png",
-        "clear.png",
-        "download.png"
+        "Clear.png",
+        "Download.png"
     ];
 
     let imageName = [];
+    let imageId =[];
 
     let countButton = $('button').length;
     for (let i = 0; i <= countButton; i++) {
         imageName.push(imagePath[i].split(".", 1));
         console.log(imageName);
         imagePath.push(`../images/${imagePath[i]}`);
-        $("div.container1 button").eq(`${i}`).append(`<img src="../images/${imagePath[i]}" alt="${imageName[i]}" title="${imageName[i]}">`);
+        $("button").eq(`${i}`).append(`<img src="../images/normal/${imagePath[i]}" alt="${imageName[i]}">`);
+        $("button").eq(`${i}`).attr("title", `${imageName[i]}`);
+    }
+    
+    $("button").each(function(){
+        imageId.push($(this).attr("id"));
+        console.log(imageId);
+    })
+
+    for (let i = 0; i <= countButton; i++) {
+        let src = $(`button[id=${imageId[i]}] > img`);
+        $(`[id=${imageId[i]}]`).hover(function() {
+                $(this).addClass("btnHover");
+                src.attr("src", src.attr("src").replace("normal", "hover"));
+                src.addClass("btnScale");
+            }, function() {
+                $(this).removeClass("btnHover");
+                src.attr("src", src.attr("src").replace("hover", "normal"));
+                src.removeClass("btnScale");
+        })
     }
 
 })
