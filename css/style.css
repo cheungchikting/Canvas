@@ -8,7 +8,7 @@
     left: 0;
     right: 0;
     margin: auto;
-    margin-top: 5vw;
+    margin-top: 8vw;
 }
 
 #canvas-draft {
@@ -18,7 +18,7 @@
 
 .container {
     width: 1280px;
-    height: 800px;
+    height: 80vh;
     overflow: hidden;
     transform: translate3d(0, 0, 0);
 }
@@ -43,6 +43,7 @@
 .magnify-on {
     transform: scale(1.5);
     transform: center center;
+    margin-top: 32%;
 }
 
 #canvas-real2 {
