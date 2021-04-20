@@ -51,7 +51,7 @@
 
 input{
     vertical-align: middle;
-    margin: 15px
+    margin: 15px;
 }
 
 body {
@@ -67,3 +67,29 @@ body {
 
 }
 
+.btnBg {
+    background-color: white;
+    border-color:#9acd32;
+}
+
+.btnHover {
+    background-color: white;
+    animation-name: button;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes button {
+    from {background-color: white;}
+    to {background-color: #9acd32;}
+}
+
+.btnScale {
+    animation-name: scale;
+    animation-duration: .5s;
+}
+
+@keyframes scale {
+    from {transform: scale(1);}
+    to {transform: scale(1.2);}
+}
