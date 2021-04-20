@@ -10,8 +10,10 @@ class circle extends MouseMethods {
     }
 
     onMouseDown(x, y) {
-        this.contextDraft.fillStyle = selectedColor;
-        this.contextReal.fillStyle = selectedColor;
+        this.contextDraft.lineWidth = width;
+        this.contextReal.lineWidth = width;
+        this.contextDraft.strokeStyle = selectedColor;
+        this.contextReal.strokeStyle = selectedColor;
         this.contextReal.beginPath();
         this.startX = x;
         this.startY = y;
@@ -21,13 +23,13 @@ class circle extends MouseMethods {
         this.contextDraft.beginPath();
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextDraft.arc(this.startX, this.startY, Math.abs(x - this.startX), 0, 2 * Math.PI);
-        this.contextDraft.fill()
+        this.contextDraft.stroke()
     };
 
     onMouseUp(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
         this.contextReal.arc(this.startX, this.startY, Math.abs(x - this.startX), 0, 2 * Math.PI);
-        this.contextReal.fill()
+        this.contextReal.stroke()
     
         log.push({
             type: "Circle",

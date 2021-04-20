@@ -20,7 +20,9 @@ class SpeechBubbleFunction extends MouseMethods {
     this.startX = x;
     this.startY = y;
     this.contextReal.lineWidth = width;
+    this.contextDraft.lineWidth = width;
     this.contextReal.strokeStyle = selectedColor;
+    this.contextDraft.strokeStyle = selectedColor;
 
   };
 
@@ -47,8 +49,6 @@ class SpeechBubbleFunction extends MouseMethods {
 
     this.contextReal.moveTo(x+ 50, y);
 
-    this.contextReal.moveTo(x + 50, y);
-
     this.contextReal.quadraticCurveTo(x, y, x, y + 37.5);
     this.contextReal.quadraticCurveTo(x, y + 75, x + 25, y + 75);
     this.contextReal.quadraticCurveTo(x + 25, y + 95, x + 5, y + 100);
@@ -60,7 +60,7 @@ class SpeechBubbleFunction extends MouseMethods {
     log.push({
       type: "bubble",
       xy: [x,y],
-      width: width,
+      lineWidth: width,
       color: selectedColor,
     })
   }

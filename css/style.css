@@ -15,6 +15,7 @@
 
 #canvas-draft {
     background-color: transparent;
+    z-index: 1000;
 }
 
 .container {
@@ -119,3 +120,10 @@ input[type="range"]{
     width:18px;
     height:18px;
   }
+
+.sliderNamePosition {
+    position: relative;
+    left: 1.5%;
+    
+}
+
