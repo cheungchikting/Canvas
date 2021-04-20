@@ -159,7 +159,7 @@ for (let each of filter) {
                 contextReal.lineTo(each.lineTo[0], each.lineTo[1])
                 contextReal.stroke();
             } else if (each.type === "rect") {
-                contextReal.fillStyle = each.color;
+                contextReal.strokeStyle = each.color;
                 contextReal.strokeRect(each.x, each.y, each.xdist, each.ydist);
             } else if (each.type === "text") {
                 contextReal.font = each.font
@@ -214,7 +214,7 @@ for (let each of filter) {
                 contextReal.closePath();
                 contextReal.stroke();
             } else if (each.type === "pentagon") {
-                contextReal.fillStyle = each.color;
+                contextReal.strokeStyle = each.color;
                 let sides = 5;
                 let step = 2 * Math.PI / sides;
                 let shift = (Math.PI / 180.0) * -18;
