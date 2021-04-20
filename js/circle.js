@@ -10,8 +10,8 @@ class circle extends MouseMethods {
     }
 
     onMouseDown(x, y) {
-        this.contextDraft.fillStyle = selectedColor;
-        this.contextReal.fillStyle = selectedColor;
+        this.contextDraft.lineWidth = width;
+        this.contextReal.lineWidth = width;
         this.contextDraft.strokeStyle = selectedColor;
         this.contextReal.strokeStyle = selectedColor;
         this.contextReal.beginPath();
