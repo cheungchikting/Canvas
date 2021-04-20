@@ -95,8 +95,35 @@ body {
     to {transform: scale(1.2);}
 }
 
+input[type="range"]{
+    -webkit-appearance: none;
+    border-radius:2px;
+    width:180px;
+    height:4px;
+    background-image:-webkit-linear-gradient(left ,#f22 0%,#f22 50%, #ebb 50%, #ebb 100%);
+    box-shadow:inset #ebb 0 0 5px;
+    outline : none;
+    transition:.1s;
+  }
+
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width:12px;
+    height:12px;
+    background:#f22;
+    border-radius:50%;
+    transition:.1s;
+  }
+  
+  input[type="range"]::-webkit-slider-thumb:hover,
+  input[type="range"]::-webkit-slider-thumb:active{
+    width:18px;
+    height:18px;
+  }
+
 .sliderNamePosition {
     position: relative;
     left: 1.5%;
     
 }
+

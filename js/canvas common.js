@@ -447,10 +447,23 @@ $(document).ready(function btnImage() {
         "Bucket.png",
     ];
 
-    let imageName = [];
-    let imageId =[];
+    let rangePath = [
+        "Width.png",
+        "Blur.png",
+        "Brightness.png",
+        "Contrast.png",
+        "Grayscale.png",
+        "Opacity.png",
+        "Saturate.png",
+        "Hue.png"
+    ];
 
-    let countButton = $('button').length;
+    let imageName = [];
+    let imageId = [];
+    let inputId = [];
+    let rangeName = [];
+
+    let countButton = $("button").length;
     for (let i = 0; i <= countButton; i++) {
         imageName.push(imagePath[i].split(".", 1));
         imagePath.push(`../images/${imagePath[i]}`);
@@ -460,7 +473,6 @@ $(document).ready(function btnImage() {
     
     $("button").each(function(){
         imageId.push($(this).attr("id"));
-        console.log(imageId);
     })
 
     for (let i = 0; i <= countButton; i++) {
@@ -475,5 +487,106 @@ $(document).ready(function btnImage() {
                 src.removeClass("btnScale");
         })
     }
+    for (let i = 0; i <= countButton; i++){
+        $(`[id=${imageId[i]}]`).tooltip({title: `${imageName[i]}`, placement: "bottom"}); 
+    }
 
+    let countInput = $("input[type=range]").length;
+
+    $("input[type=range]").each(function(){
+        inputId.push($(this).attr("id"));
+    })
+
+    $(function(){
+        let range = $(`#${inputId[0]}`);
+        range.on('mouseenter',function(){
+            let parameter = range.val();
+            range.on('click',function(){
+                parameter = range.val();
+                bg(parameter);
+            });
+            range.on('mousemove',function(){
+                parameter = range.val();
+                bg(parameter);
+            });
+        });
+        function bg(n){
+            range.css({
+                'background-image':`-webkit-linear-gradient(left, #f22 0%, #f22 ${(n/1.5)}%, #ebb ${(n/1.5)}%, #ebb 100%)`
+            });
+        }
+    });
+
+    $(function(){
+        let range = $(`#${inputId[1]}`);
+        range.on('mouseenter',function(){
+            let parameter = range.val();
+            range.on('click',function(){
+                parameter = range.val();
+                bg(parameter);
+            });
+            range.on('mousemove',function(){
+                parameter = range.val();
+                bg(parameter);
+            });
+        });
+        function bg(n){
+            range.css({
+                'background-image':`-webkit-linear-gradient(left, #f22 0%, #f22 ${(n/.5)}%, #ebb ${(n/.5)}%, #ebb 100%)`
+            });
+        }
+    });
+
+    for (let i = 2; i <= countInput-1; i++){
+        $(function(){
+            let range = $(`#${inputId[i]}`);
+            range.on('mouseenter',function(){
+                let parameter = range.val();
+                range.on('click',function(){
+                    parameter = range.val();
+                    bg(parameter);
+                });
+                range.on('mousemove',function(){
+                    parameter = range.val();
+                    bg(parameter);
+                });
+            });
+            function bg(n){
+                range.css({
+                    'background-image':`-webkit-linear-gradient(left, #f22 0%, #f22 ${n}%, #ebb ${n}%, #ebb 100%)`
+                });
+            }
+        });
+    }
+
+    $(function(){
+        let range = $(`#${inputId[countInput]}`);
+        range.on('mouseenter',function(){
+            let parameter = range.val();
+            range.on('click',function(){
+                parameter = range.val();
+                bg(parameter);
+            });
+            range.on('mousemove',function(){
+                parameter = range.val();
+                bg(parameter);
+            });
+        });
+        function bg(n){
+            range.css({
+                'background-image':`-webkit-linear-gradient(left, #f22 0%, #f22 ${(n/360)}%, #ebb ${(n/360)}%, #ebb 100%)`
+            });
+        }
+    });
+
+    for (let i = 0; i <= countInput; i++) {
+        rangeName.push(rangePath[i].split(".", 1));
+        rangePath.push(`../images/${rangePath[i]}`);
+        $("input[type=range]").eq(`${i}`).after(`<img src="../images/${rangePath[i]}" alt="${rangeName[i]}">`);
+    }
+
+    for (let i = 0; i <= countInput; i++){
+        $(`img[alt=${rangeName[i]}]`).tooltip({title: `${rangeName[i]}`, placement: "right"}); 
+    }
 })
+
