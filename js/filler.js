@@ -20,57 +20,55 @@ class filler extends MouseMethods {
         this.pixelStack = [
             [x, y]
         ];
-        // if the color is the same 
+
         if (this.startR == rgbArray[0] && this.startG == rgbArray[1] && this.startB == rgbArray[2] && this.startO == 255) {
             alert('same color');
             return;
         } else {
 
-            while (this.pixelStack.length) {
+        while (this.pixelStack.length) {
 
-                this.newPos = this.pixelStack.pop();
-                this.newX = this.newPos[0]
-                this.newY = this.newPos[1]
-                this.pixelPos = (this.newY * canvasDraft.width + this.newX) * 4;
-                // takes current mouse position to top 
-                while (this.newY-- >= 0 && this.matchStartColor(this.pixelPos, this.startR, this.startG, this.startB)) {
-                    this.pixelPos -= canvasDraft.width * 4
-                }
-                // 
-                this.pixelPos += canvasDraft.width * 4
-                this.newY++;
-                this.reachLeft = false;
-                this.reachRight = false;
-
-                while (this.newY++ < canvasDraft.height - 1 && this.matchStartColor(this.pixelPos, this.startR, this.startG, this.startB)) {
-                    this.colorPixel(this.pixelPos);
-                    console.log(this.newY);
-                    if (this.newX > 0) {
-                        if (this.matchStartColor(this.pixelPos - 4, this.startR, this.startG, this.startB)) {
-                            if (!this.reachLeft) {
-                                this.pixelStack.push([this.newX - 1, this.newY]);
-                                this.reachLeft = true;
-                            }
-                        } else if (this.reachLeft) {
-                            this.reachLeft = false;
-                        }
-                    }
-                    if (this.newX < canvasDraft.width - 1) {
-                        if (this.matchStartColor(this.pixelPos + 4, this.startR, this.startG, this.startB)) {
-                            if (!this.reachRight) {
-                                this.pixelStack.push([this.newX + 1, this.newY]);
-                                this.reachRight = true;
-                            }
-                        } else if (this.reachRight) {
-                            this.reachRight = false;
-                        }
-
-                    }
-                    this.pixelPos += canvasDraft.width * 4
-                }
+            this.newPos = this.pixelStack.pop();
+            this.newX = this.newPos[0];
+            this.newY = this.newPos[1];
+            this.pixelPos = (this.newY * canvasDraft.width + this.newX) * 4;
+            while (this.newY-- >= 0 && this.matchStartColor(this.pixelPos, this.startR, this.startG, this.startB)) {
+                this.pixelPos -= canvasDraft.width * 4;
             }
-            contextReal.putImageData(this.imgDataArray, 0, 0);
-            rgbArray = []
+            this.pixelPos += canvasDraft.width * 4;
+            this.newY++;
+            this.reachLeft = false;
+            this.reachRight = false;
+
+            while (this.newY++ < canvasDraft.height - 1 && this.matchStartColor(this.pixelPos, this.startR, this.startG, this.startB)) {
+                this.colorPixel(this.pixelPos);
+                console.log(this.newY);
+                if (this.newX > 0) {
+                    if (this.matchStartColor(this.pixelPos - 4, this.startR, this.startG, this.startB)) {
+                        if (!this.reachLeft) {
+                            this.pixelStack.push([this.newX - 1, this.newY]);
+                            this.reachLeft = true;
+                        }
+                    } else if (this.reachLeft) {
+                        this.reachLeft = false;
+                    }
+                }
+                if (this.newX < canvasDraft.width - 1) {
+                    if (this.matchStartColor(this.pixelPos + 4, this.startR, this.startG, this.startB)) {
+                        if (!this.reachRight) {
+                            this.pixelStack.push([this.newX + 1, this.newY]);
+                            this.reachRight = true;
+                        }
+                    } else if (this.reachRight) {
+                        this.reachRight = false;
+                    }
+
+                }
+                this.pixelPos += canvasDraft.width * 4;
+            }
+        }
+        contextReal.putImageData(this.imgDataArray, 0, 0);
+        rgbArray = [];
 
 
         }
@@ -89,9 +87,7 @@ class filler extends MouseMethods {
         let r = this.imgDataArray.data[pixelPos];
         let g = this.imgDataArray.data[pixelPos + 1];
         let b = this.imgDataArray.data[pixelPos + 2];
-        if (r == startR && g == startG && b == startB) {
-            return true
-        };
+        return (r == startR && g == startG && b == startB)
     }
 
     colorPixel(pixelPos) {
@@ -100,7 +96,6 @@ class filler extends MouseMethods {
         this.imgDataArray.data[pixelPos + 2] = rgbArray[2];
         this.imgDataArray.data[pixelPos + 3] = 255;
     }
-
 }
 
 
