@@ -21,7 +21,6 @@ let saveButton = document.getElementById('save');
 let upLoadButton = document.getElementById('imageLoader');
 let eraserButton = document.getElementById('eraser');
 let fillerButton = document.getElementById('fillerButton');
-let imgDataArray = contextReal.getImageData(0, 0, canvasReal.width, canvasReal.height);
 
 let log = []
 let popLog = []
@@ -92,6 +91,22 @@ document.getElementById("favcolor").addEventListener('input', (e) => {
     selectedColor = document.getElementById("favcolor").value;
     console.log(selectedColor)
 })
+
+let rgbArray = [];
+function hexToRgbA(hex) {
+    let c;
+    if (/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) {
+        c = hex.substring(1).split('');
+        if (c.length == 3) {
+            c = [c[0], c[0], c[1], c[1], c[2], c[2]];
+        }
+        c = '0x' + c.join('');
+
+        rgbArray.push((c >> 16) & 255)
+        rgbArray.push((c >> 8) & 255)
+        rgbArray.push(c & 255)
+    }
+}
 
 
 
@@ -449,7 +464,6 @@ $(document).ready(function btnImage() {
     
     $("button").each(function(){
         imageId.push($(this).attr("id"));
-        console.log(imageId);
     })
 
     for (let i = 0; i <= countButton; i++) {

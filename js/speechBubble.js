@@ -69,6 +69,5 @@ class SpeechBubbleFunction extends MouseMethods {
 }
 
 $("#speechButton").click(function () {
-  console.log("speechBubble Button clicked");
   currentFunction = new SpeechBubbleFunction(contextReal, contextDraft);
 });

@@ -3,8 +3,6 @@
     padding: 0;
 }
 
-
-
 .canvas {
     position: absolute;
     left: 0;
@@ -44,13 +42,13 @@
 .magnify-on {
     transform: scale(1.5);
     transform: center center;
-} 
+}
 
 #canvas-real2 {
     z-index: -1;
 }
 
-input{
+input {
     vertical-align: middle;
     margin: 15px;
 }
@@ -65,12 +63,11 @@ body {
 
 #imageLoader {
     width: 15%
-
 }
 
 .btnBg {
     background-color: white;
-    border-color:#9acd32;
+    border-color: #9acd32;
 }
 
 .btnHover {
@@ -81,8 +78,13 @@ body {
 }
 
 @keyframes button {
-    from {background-color: white;}
-    to {background-color: #9acd32;}
+    from {
+        background-color: white;
+    }
+
+    to {
+        background-color: #9acd32;
+    }
 }
 
 .btnScale {
@@ -91,6 +93,11 @@ body {
 }
 
 @keyframes scale {
-    from {transform: scale(1);}
-    to {transform: scale(1.2);}
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
 }
