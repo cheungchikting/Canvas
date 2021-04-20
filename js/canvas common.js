@@ -90,6 +90,7 @@ let selectedColor = document.getElementById("favcolor").value
 document.getElementById("favcolor").addEventListener('input', (e) => {
     selectedColor = document.getElementById("favcolor").value;
     console.log(selectedColor)
+
 })
 
 let rgbArray = [];
@@ -107,7 +108,6 @@ function hexToRgbA(hex) {
         rgbArray.push(c & 255)
     }
 }
-
 
 
 //Width Slider Funciton
@@ -184,7 +184,6 @@ for (let each of filter) {
                 contextReal.quadraticCurveTo(each.xy[0] + 100, each.xy[1] + 75, each.xy[0] + 100, each.xy[1] + 37.5);
                 contextReal.quadraticCurveTo(each.xy[0] + 100,each.xy[1], each.xy[0] + 50, each.xy[1]);
                 contextReal.stroke();
-                
             } else if (each.type === "triangle") {
                 contextReal.strokeStyle = each.color;
                 contextReal.lineWidth = each.width;
@@ -227,13 +226,12 @@ for (let each of filter) {
                 }
                 contextReal.closePath();
                 contextReal.stroke();
-            }
+            } 
         }
     })
 }
 
 //Undo Function
-
 undoButton.addEventListener('click', (e) => {
     if (log.length > 0) {
         popLog.push(log[log.length - 1])

@@ -4,6 +4,7 @@
 }
 
 .canvas {
+    border:red 2px solid;
     position: absolute;
     left: 0;
     right: 0;
@@ -17,8 +18,9 @@
 }
 
 .container {
+    border: springgreen 1px solid;
     width: 1280px;
-    height: 800px;
+    height: 850px;
     overflow: hidden;
     transform: translate3d(0, 0, 0);
 }
@@ -59,8 +61,6 @@ body {
     background-size: 3700px auto;
     background-position: 52% 55%;
 }
-
-
 
 #imageLoader {
     width: 15%
@@ -132,7 +132,7 @@ input[type="range"]{
 
 .sliderNamePosition {
     position: relative;
-    right: 3%;
+    right: 2%;
 }
 
 
@@ -140,11 +140,10 @@ input[type="range"]{
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .rangecontainer {
-    width: 18%;
+    width: 25%;
     text-align: right;
 }
 
