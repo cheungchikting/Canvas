@@ -35,6 +35,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 
@@ -85,7 +86,7 @@ body {
     to {
         background-color: #9acd32;
     }
-}
+} 
 
 .btnScale {
     animation-name: scale;
@@ -101,11 +102,7 @@ body {
     to {
         transform: scale(1.2);
     }
-}
-
-    from {transform: scale(1);}
-    to {transform: scale(1.2);}
-
+} 
 
 input[type="range"]{
     -webkit-appearance: none;
@@ -135,7 +132,19 @@ input[type="range"]{
 
 .sliderNamePosition {
     position: relative;
-    left: 1.5%;
-    
+    right: 3%;
+}
+
+
+.rangerow {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rangecontainer {
+    width: 18%;
+    text-align: right;
 }
 

@@ -597,7 +597,7 @@ $(document).ready(function btnImage() {
     for (let i = 0; i <= countInput; i++) {
         rangeName.push(rangePath[i].split(".", 1));
         rangePath.push(`../images/${rangePath[i]}`);
-        $("input[type=range]").eq(`${i}`).after(`<img src="../images/${rangePath[i]}" alt="${rangeName[i]}">`);
+        $("input[type=range]").eq(`${i}`).before(`<img src="../images/${rangePath[i]}" alt="${rangeName[i]}">`);
     }
 
     for (let i = 0; i <= countInput; i++){
