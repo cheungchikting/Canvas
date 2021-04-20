@@ -94,3 +94,9 @@ body {
     from {transform: scale(1);}
     to {transform: scale(1.2);}
 }
+
+.sliderNamePosition {
+    position: relative;
+    left: 1.5%;
+    
+}

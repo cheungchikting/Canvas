@@ -10,20 +10,22 @@ class rectangle extends MouseMethods {
     }
 
     onMouseDown(x, y) {
-        this.contextDraft.fillStyle = selectedColor;
-        this.contextReal.fillStyle = selectedColor;
+        this.contextDraft.lineWidth = width;
+        this.contextReal.lineWidth = width;
+        this.contextDraft.strokeStyle = selectedColor;
+        this.contextReal.strokeStyle = selectedColor;
         this.startX = x;
         this.startY = y;
     };
 
     onMouseDrag(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextDraft.fillRect(this.startX, this.startY, x - this.startX, y - this.startY);
+        this.contextDraft.strokeRect(this.startX, this.startY, x - this.startX, y - this.startY);
     };
 
     onMouseUp(x, y) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextReal.fillRect(this.startX, this.startY, x - this.startX, y - this.startY);
+        this.contextReal.strokeRect(this.startX, this.startY, x - this.startX, y - this.startY);
         log.push({
             type: "rect",
             x: this.startX,
