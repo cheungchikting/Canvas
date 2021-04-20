@@ -34,7 +34,6 @@ class draw extends MouseMethods {
             drawWidth: width
         })
         this.arr = []
-        console.log(log)
     }
 }
 
