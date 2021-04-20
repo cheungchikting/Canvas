@@ -26,7 +26,8 @@ class triFunction extends MouseMethods {
         this.contextDraft.moveTo(x, y);
         this.contextDraft.lineTo(this.startingX, this.startingY);
         this.contextDraft.lineTo(x + (x - this.startingX), this.startingY);
-        this.contextDraft.fill();
+        this.contextDraft.closePath();
+        this.contextDraft.stroke();
 
     };
 
@@ -36,7 +37,8 @@ class triFunction extends MouseMethods {
         this.contextReal.moveTo(x, y);
         this.contextReal.lineTo(this.startingX, this.startingY);
         this.contextReal.lineTo(x + (x - this.startingX), this.startingY);
-        this.contextReal.fill();
+        this.contextReal.closePath();
+        this.contextReal.stroke();
         log.push({
             type: "triangle",
             start: [this.startingX, this.startingY],

@@ -37,7 +37,8 @@ class hexagonFunction extends MouseMethods {
             this.contextDraft.lineTo (x + (x - this.startingX) * Math.cos(curStep), y + (y - this.startingY) * Math.sin(curStep));
             console.log.apply(this.contextDraft.lineTo);
         }
-        this.contextDraft.fill();
+        this.contextDraft.closePath();
+        this.contextDraft.stroke();
         
   
        
@@ -53,7 +54,8 @@ class hexagonFunction extends MouseMethods {
             this.contextReal.lineTo (x + (x - this.startingX) * Math.cos(curStep), y + (y - this.startingY) * Math.sin(curStep));
             console.log.apply(this.contextReal.lineTo);
         }
-        this.contextReal.fill();
+        this.contextReal.closePath();
+        this.contextReal.stroke();
 
         log.push({
             type: "hexagon",

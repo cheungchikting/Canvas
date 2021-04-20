@@ -52,20 +52,35 @@
     </div>
     <div class="container2 py-3">
         <form class="py-3" action=>
-            <input type="range" id="width" name="width" min="1" max="150" value="10"> width
-            <input type="range" class="filter" id="blur-slider" name="blur" min="0" max="50" value="0"> Blur
+            <input type="range" id="width" name="width" min="1" max="150" value="10"> <!--Width-->
+            <input type="range" id="blur-slider" name="blur" min="0" max="50" value="0"> <!--Blur-->
+            <input type="range" id="brightness-slider" name="brightness" min="0%" max="100%" value="100%"> <!--brightness-->
+            <input type="range" id="contrast-slider" name="contrast" min="0%" max="100%" value="100%"> <!--contrast--> <br>
+            <input type="range" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0%"> <!--grayscale-->
+            <input type="range" id="opacity-slider" name="opacity" min="0%" max="100%" value="100%"> <!--opacity-->
+            <input type="range" id="saturate-slider" name="saturate" min="0%" max="100%" value="100%"> <!--saturate-->
+            <input type="range" id="hue-rotate-slider" name="hue-rotate" min="0deg" max="360deg" value="0deg"> <!--hue-rotate-->
+    <div class="container2 py-2">
+        <form class="py-2" action=>
+            <label class="sliderNamePosition">Width:</label>
+            <input type="range" id="width" name="width" min="1" max="150" value="10">
+            <label class="sliderNamePosition">Blur:</label>
+            <input type="range" class="filter" id="blur-slider" name="blur" min="0" max="50" value="0">
+            <label class="sliderNamePosition">Brightness:</label>
             <input type="range" class="filter" id="brightness-slider" name="brightness" min="0%" max="100%"
-                value="100%"> Brightness
-            <input type="range" class="filter" id="contrast-slider" name="contrast" min="0%" max="100%" value="100%">
-            Contrast <br>
-            <input type="range" class="filter" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0%">
-            Grayscale
-            <input type="range" class="filter" id="opacity-slider" name="opacity" min="0%" max="100%" value="100%">
-            Opacity
-            <input type="range" class="filter" id="saturate-slider" name="saturate" min="0%" max="100%" value="100%">
-            Saturate
+                value="100">
+                <label class="sliderNamePosition">Contrast:</label> 
+            <input type="range" class="filter" id="contrast-slider" name="contrast" min="0%" max="100%" value="100">
+            <br>
+            <label class="sliderNamePosition">Grayscale:</label> 
+            <input type="range" class="filter" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0">
+            <label class="sliderNamePosition">Opacity:</label> 
+            <input type="range" class="filter" id="opacity-slider" name="opacity" min="0%" max="100%" value="100">
+            <label class="sliderNamePosition">Saturate:</label> 
+            <input type="range" class="filter" id="saturate-slider" name="saturate" min="0%" max="100%" value="100">
+            <label class="sliderNamePosition">Hue-rotate:</label> 
             <input type="range" class="filter" id="hue-rotate-slider" name="hue-rotate" min="0deg" max="360deg"
-                value="0deg"> Hue-rotate
+                value="0">
         </form>
     </div>
     <div class="container">
