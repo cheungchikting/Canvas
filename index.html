@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Canvas Project</title>
 </head>
+
 <body>
     <div class="container1">
         <input type="color" id="favcolor" name="favcolor" value="#ff0000">
@@ -44,20 +46,26 @@
             <!--Clear--></button>
         <button type="button" id="save" class="btnBg btn waves-effect p-2 px-3">
             <!--Download--></button>
-            <button type="button" id="fillerButton" class="btn btn-outline-dark waves-effect p-2 px-3 bg-light">
-                <!--Filler--></button>
+        <button type="button" id="fillerButton" class="btnBg btn waves-effect p-2 px-3">
+            <!--Filler--></button>
         <input type="file" id="imageLoader" name="imageLoader">
     </div>
     <div class="container2 py-3">
         <form class="py-3" action=>
             <input type="range" id="width" name="width" min="1" max="150" value="10"> width
-            <input type="range" class= "filter" id="blur-slider" name="blur" min="0" max="50" value="0"> Blur
-            <input type="range" class= "filter" id="brightness-slider" name="brightness" min="0%" max="100%" value="100%"> Brightness
-            <input type="range" class= "filter" id="contrast-slider" name="contrast" min="0%" max="100%" value="100%"> Contrast <br>
-            <input type="range" class= "filter" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0%"> Grayscale
-            <input type="range" class= "filter" id="opacity-slider" name="opacity" min="0%" max="100%" value="100%"> Opacity
-            <input type="range" class= "filter" id="saturate-slider" name="saturate" min="0%" max="100%" value="100%"> Saturate
-            <input type="range" class= "filter" id="hue-rotate-slider" name="hue-rotate" min="0deg" max="360deg" value="0deg"> Hue-rotate
+            <input type="range" class="filter" id="blur-slider" name="blur" min="0" max="50" value="0"> Blur
+            <input type="range" class="filter" id="brightness-slider" name="brightness" min="0%" max="100%"
+                value="100%"> Brightness
+            <input type="range" class="filter" id="contrast-slider" name="contrast" min="0%" max="100%" value="100%">
+            Contrast <br>
+            <input type="range" class="filter" id="grayscale-slider" name="grayscale" min="0%" max="100%" value="0%">
+            Grayscale
+            <input type="range" class="filter" id="opacity-slider" name="opacity" min="0%" max="100%" value="100%">
+            Opacity
+            <input type="range" class="filter" id="saturate-slider" name="saturate" min="0%" max="100%" value="100%">
+            Saturate
+            <input type="range" class="filter" id="hue-rotate-slider" name="hue-rotate" min="0deg" max="360deg"
+                value="0deg"> Hue-rotate
         </form>
     </div>
     <div class="container">
@@ -89,4 +97,5 @@
     <script type="text/javascript" src="./js/UploadImage.js"></script>
     <script type="text/javascript" src="./js/filler.js"></script>
 </body>
+
 </html>

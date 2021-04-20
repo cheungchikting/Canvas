@@ -44,38 +44,38 @@ class MouseMethods {
     onMouseEnter() {};
 };
 
-canvasReal.addEventListener('mousedown', e => {
+canvasDraft.addEventListener('mousedown', e => {
     getXY(e);
     dragging = true;
     currentFunction.onMouseDown(x, y);
 });
 
-canvasReal.addEventListener('mousemove', e => {
+canvasDraft.addEventListener('mousemove', e => {
     if (dragging === true) {
         getXY(e);
         currentFunction.onMouseDrag(x, y);
     }
 });
 
-canvasReal.addEventListener('mousemove', e => {
+canvasDraft.addEventListener('mousemove', e => {
     if (dragging !== true) {
         getXY(e);
         currentFunction.onMouseMove(x, y);
     }
 });
 
-canvasReal.addEventListener('mouseup', e => {
+canvasDraft.addEventListener('mouseup', e => {
     getXY(e);
     dragging = false;
     currentFunction.onMouseUp(x, y)
 });
 
-canvasReal.addEventListener('mouseenter', e => {
+canvasDraft.addEventListener('mouseenter', e => {
     getXY(e);
     currentFunction.onMouseEnter(x, y)
 });
 
-canvasReal.addEventListener('mouseleave', e => {
+canvasDraft.addEventListener('mouseleave', e => {
     getXY(e);
     dragging = false;
     currentFunction.onMouseLeave(x, y)
@@ -432,7 +432,8 @@ $(document).ready(function btnImage() {
         "Undo.png",
         "Redo.png",
         "Clear.png",
-        "Download.png"
+        "Download.png",
+        "Bucket.png",
     ];
 
     let imageName = [];

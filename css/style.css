@@ -15,6 +15,7 @@
 
 #canvas-draft {
     background-color: transparent;
+    z-index: 1000;
 }
 
 .container {

@@ -14,8 +14,8 @@ class filler extends MouseMethods {
 
         this.startX = x
         this.startY = y
-
         this.startR = imgDataArray.data
+        console.log(this.startR)
 
 
 
