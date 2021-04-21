@@ -136,6 +136,7 @@ for (let each of filter) {
         for (each of log) {
             if (each.type === "Circle") {
                 contextReal.strokeStyle = each.color
+                contextReal.lineWidth = each.linewidth
                 contextReal.beginPath()
                 contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
                 contextReal.stroke()
@@ -160,6 +161,7 @@ for (let each of filter) {
                 contextReal.stroke();
             } else if (each.type === "rect") {
                 contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.linewidth;
                 contextReal.strokeRect(each.x, each.y, each.xdist, each.ydist);
             } else if (each.type === "text") {
                 contextReal.font = each.font
@@ -167,14 +169,14 @@ for (let each of filter) {
                 contextReal.fillText(each.content, each.x, each.y)
             } else if (each.type === "curve") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.curvewidth;
                 contextReal.beginPath();
                 contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
                 contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
                 contextReal.stroke();
             } else if (each.type === "bubble") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.linewidth;
                 contextReal.beginPath();
                 contextReal.moveTo(each.xy[0] + 50, each.xy[1]);
                 contextReal.quadraticCurveTo(each.xy[0], each.xy[1], each.xy[0], each.xy[1] + 37.5);
@@ -186,7 +188,7 @@ for (let each of filter) {
                 contextReal.stroke();
             } else if (each.type === "triangle") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.linewidth;
                 contextReal.beginPath()
                 contextReal.moveTo(each.xy[0], each.xy[1]);
                 contextReal.lineTo(each.start[0], each.start[1]);
@@ -200,7 +202,7 @@ for (let each of filter) {
                 }
             } else if (each.type === "hexagon") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.linewidth;
                 let hexSides = 6;
                 let hexStep = 2 * Math.PI / hexSides;
                 let hexShift = (Math.PI / 180.0) * -0.1;
@@ -215,6 +217,7 @@ for (let each of filter) {
                 contextReal.stroke();
             } else if (each.type === "pentagon") {
                 contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.linewidth;
                 let sides = 5;
                 let step = 2 * Math.PI / sides;
                 let shift = (Math.PI / 180.0) * -18;
@@ -242,6 +245,7 @@ undoButton.addEventListener('click', (e) => {
         for (each of log) {
             if (each.type === "Circle") {
                 contextReal.strokeStyle = each.color
+                contextReal.lineWidth = each.linewidth
                 contextReal.beginPath()
                 contextReal.arc(each.x, each.y, each.r, each.sAngle, each.eAngle)
                 contextReal.stroke()
@@ -266,6 +270,7 @@ undoButton.addEventListener('click', (e) => {
                 contextReal.stroke();
             } else if (each.type === "rect") {
                 contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.linewidth;
                 contextReal.strokeRect(each.x, each.y, each.xdist, each.ydist);
             } else if (each.type === "text") {
                 contextReal.font = each.font
@@ -273,14 +278,14 @@ undoButton.addEventListener('click', (e) => {
                 contextReal.fillText(each.content, each.x, each.y)
             } else if (each.type === "curve") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.curvewidth;
                 contextReal.beginPath();
                 contextReal.moveTo(each.moveTo[0], each.moveTo[1]);
                 contextReal.quadraticCurveTo(each.control[0], each.control[1], each.end[0], each.end[1]);
                 contextReal.stroke();
             } else if (each.type === "bubble") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.linewidth;
                 contextReal.beginPath();
                 contextReal.moveTo(each.xy[0] + 50, each.xy[1]);
                 contextReal.quadraticCurveTo(each.xy[0], each.xy[1], each.xy[0], each.xy[1] + 37.5);
@@ -306,7 +311,7 @@ undoButton.addEventListener('click', (e) => {
                 }
             } else if (each.type === "hexagon") {
                 contextReal.strokeStyle = each.color;
-                contextReal.lineWidth = each.width;
+                contextReal.lineWidth = each.linewidth;
                 let hexSides = 6;
                 let hexStep = 2 * Math.PI / hexSides;
                 let hexShift = (Math.PI / 180.0) * -0.1;
@@ -321,6 +326,7 @@ undoButton.addEventListener('click', (e) => {
                 contextReal.stroke();
             } else if (each.type === "pentagon") {
                 contextReal.strokeStyle = each.color;
+                contextReal.lineWidth = each.linewidth;
                 let sides = 5;
                 let step = 2 * Math.PI / sides;
                 let shift = (Math.PI / 180.0) * -18;
@@ -345,6 +351,7 @@ redoButton.addEventListener('click', (e) => {
         popLog.pop()
         if (lastItem.type === "Circle") {
             contextReal.strokeStyle = lastItem.color
+            contextReal.lineWidth = lastItem.linewidth
             contextReal.beginPath()
             contextReal.arc(lastItem.x, lastItem.y, lastItem.r, lastItem.sAngle, lastItem.eAngle)
             contextReal.stroke()
@@ -367,6 +374,7 @@ redoButton.addEventListener('click', (e) => {
             contextReal.stroke();
         } else if (lastItem.type === "rect") {
             contextReal.strokeStyle = lastItem.color;
+            contextReal.lineWidth = lastItem.linewidth;
             contextReal.strokeRect(lastItem.x, lastItem.y, lastItem.xdist, lastItem.ydist);
         } else if (lastItem.type === "text") {
             contextReal.font = lastItem.font
@@ -374,14 +382,14 @@ redoButton.addEventListener('click', (e) => {
             contextReal.fillText(lastItem.content, lastItem.x, lastItem.y)
         } else if (lastItem.type === "curve") {
             contextReal.strokeStyle = lastItem.color;
-            contextReal.lineWidth = lastItem.width;
+            contextReal.lineWidth = lastItem.curvewidth;
             contextReal.beginPath();
             contextReal.moveTo(lastItem.moveTo[0], lastItem.moveTo[1]);
             contextReal.quadraticCurveTo(lastItem.control[0], lastItem.control[1], lastItem.end[0], lastItem.end[1]);
             contextReal.stroke();
         } else if (lastItem.type === "bubble") {
             contextReal.strokeStyle = lastItem.color;
-            contextReal.lineWidth = lastItem.width;
+            contextReal.lineWidth = lastItem.linewidth;
             contextReal.beginPath();
             contextReal.moveTo(lastItem.xy[0] + 50, lastItem.xy[1]);
             contextReal.quadraticCurveTo(lastItem.xy[0], lastItem.xy[1], lastItem.xy[0], lastItem.xy[1] + 37.5);
@@ -407,6 +415,7 @@ redoButton.addEventListener('click', (e) => {
             }
         } else if (lastItem.type === "hexagon") {
             contextReal.strokeStyle = lastItem.color;
+            contextReal.lineWidth = lastItem.linewidth;
             let hexSides = 6;
             let hexStep = 2 * Math.PI / hexSides;
             let hexShift = (Math.PI / 180.0) * -0.1;
@@ -422,6 +431,7 @@ redoButton.addEventListener('click', (e) => {
             contextReal.stroke();
         } else if (lastItem.type === "pentagon") {
             contextReal.strokeStyle = lastItem.color;
+            contextReal.lineWidth = lastItem.linewidth;
             let sides = 5;
             let step = 2 * Math.PI / sides;
             let shift = (Math.PI / 180.0) * -18;

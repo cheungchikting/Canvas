@@ -62,7 +62,7 @@ class hexagonFunction extends MouseMethods {
             start: [this.startingX, this.startingY ],
             xy: [x,y],
             color: selectedColor,
-            width: width
+            linewidth: width
         })
     };
 

@@ -33,6 +33,7 @@ class rectangle extends MouseMethods {
             xdist: x - this.startX,
             ydist: y - this.startY,
             color: selectedColor,
+            linewidth: width,
         })
     };
 

@@ -38,7 +38,8 @@ class circle extends MouseMethods {
             r: Math.abs(x - this.startX),
             sAngle: 0,
             eAngle: 2 * Math.PI,
-            color: selectedColor
+            color: selectedColor,
+            linewidth: width
         })
     };
     onMouseLeave(x, y) {}

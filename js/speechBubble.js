@@ -60,7 +60,7 @@ class SpeechBubbleFunction extends MouseMethods {
     log.push({
       type: "bubble",
       xy: [x,y],
-      lineWidth: width,
+      linewidth: width,
       color: selectedColor,
     })
   }
